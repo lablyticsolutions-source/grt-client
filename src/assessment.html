@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mental Health Assessment - Gentle Rise Therapy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .custom-scrollbar {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+      }
+
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 8px;
+      }
+
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(156, 163, 175, 0.5);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgba(107, 114, 128, 0.7);
+      }
+      
+      .gradient-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      
+      .card-gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      
+      .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+      }
+      
+      .btn-secondary {
+        background: white;
+        color: #374151;
+        border: 2px solid #e5e7eb;
+        border-radius: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      
+      .btn-secondary:hover {
+        background: #f9fafb;
+        border-color: #d1d5db;
+      }
+      
+      .progress-bar {
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        height: 8px;
+        border-radius: 4px;
+        transition: width 0.3s ease;
+      }
+      
+      .section-card {
+        background: white;
+        border-radius: 1rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+      }
+      
+      .question-card {
+        background: #f9fafb;
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .radio-option {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem;
+        margin: 0.5rem 0;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      
+      .radio-option:hover {
+        background: #f3f4f6;
+      }
+      
+      .radio-option.selected {
+        background: #ede9fe;
+        border: 2px solid #8b5cf6;
+      }
+      
+      .select-dropdown {
+        width: 100%;
+        padding: 0.75rem;
+        border: 2px solid #e5e7eb;
+        border-radius: 0.5rem;
+        background: white;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+      }
+      
+      .select-dropdown:focus {
+        outline: none;
+        border-color: #8b5cf6;
+        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+      }
+      
+      .slider-container {
+        padding: 1rem 0;
+      }
+      
+      .slider {
+        width: 100%;
+        height: 8px;
+        border-radius: 4px;
+        background: #e5e7eb;
+        outline: none;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+      
+      .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #8b5cf6;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease;
+      }
+      
+      .slider::-webkit-slider-thumb:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+      
+      .slider::-moz-range-thumb {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #8b5cf6;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      
+      .result-card {
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        border: 2px solid rgba(102, 126, 234, 0.2);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        transition: all 0.3s ease;
+      }
+      
+      .result-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+      }
+      
+      .icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin-right: 1rem;
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-br from-blue-50 via-white to-green-50 min-h-screen">
+    <div id="assessment-root" class="min-h-screen"></div>
+    
+    <script type="module">
+      // Assessment data and logic
+      const therapyAreas = [
+        {
+          id: 'anxiety',
+          name: 'Anxiety & Depression',
+          description: 'Learn to manage worry, panic, and stress with healthier coping tools.',
+          color: 'from-blue-500 to-purple-600',
+          keywords: ['anxious', 'nervous', 'edge', 'sadness', 'sleep', 'tired', 'stressed', 'low']
+        },
+        {
+          id: 'couples',
+          name: 'Couples Therapy',
+          description: 'Improve communication, rebuild trust, and strengthen your relationship.',
+          color: 'from-pink-500 to-red-600',
+          keywords: ['relationship', 'partner', 'stress', 'married', 'separated', 'divorced']
+        },
+        {
+          id: 'family',
+          name: 'Family Therapy',
+          description: 'Resolve conflicts, improve understanding, and build healthier family dynamics.',
+          color: 'from-green-500 to-teal-600',
+          keywords: ['family', 'conflicts', 'challenges', 'living', 'with family']
+        },
+        {
+          id: 'child-teen',
+          name: 'Child & Teen Counseling',
+          description: 'Support for emotional, behavioral, and school-related challenges in young people.',
+          color: 'from-yellow-500 to-orange-600',
+          keywords: ['student', 'young', 'teen', 'child']
+        },
+        {
+          id: 'work-career',
+          name: 'Work & Career Issues',
+          description: 'Navigate stress, burnout, job transitions, or workplace challenges.',
+          color: 'from-indigo-500 to-blue-600',
+          keywords: ['job', 'work', 'career', 'employed', 'unemployed', 'stress', 'burnout', 'workplace']
+        },
+        {
+          id: 'trauma',
+          name: 'Trauma & PTSD',
+          description: 'Heal from past experiences and build resilience for the future.',
+          color: 'from-purple-500 to-pink-600',
+          keywords: ['traumatic', 'event', 'affects', 'ptsd', 'past']
+        },
+        {
+          id: 'addiction',
+          name: 'Addiction Recovery',
+          description: 'Guidance and support to break free from substance or behavioral addictions.',
+          color: 'from-orange-500 to-red-600',
+          keywords: ['alcohol', 'substances', 'addictive', 'gaming', 'gambling', 'addiction']
+        },
+        {
+          id: 'sleep',
+          name: 'Insomnia & Sleep Issues',
+          description: 'Develop strategies to improve sleep patterns and restore rest.',
+          color: 'from-indigo-500 to-purple-600',
+          keywords: ['sleep', 'insomnia', 'falling asleep', 'staying asleep', 'tired']
+        },
+        {
+          id: 'eating',
+          name: 'Eating Disorders',
+          description: 'Specialized support for body image, eating habits, and healthy recovery.',
+          color: 'from-pink-500 to-purple-600',
+          keywords: ['eating', 'food', 'body image', 'habits']
+        },
+        {
+          id: 'lgbtq',
+          name: 'LGBTQ+ Affirmative Therapy',
+          description: 'A safe, supportive space for exploring identity, relationships, and mental health.',
+          color: 'from-purple-500 to-pink-600',
+          keywords: ['lgbtq', 'identity', 'affirmative', 'support']
+        },
+        {
+          id: 'stress',
+          name: 'Stress Management',
+          description: 'Learn techniques to reduce stress and build emotional balance.',
+          color: 'from-green-500 to-blue-600',
+          keywords: ['stress', 'overwhelmed', 'balance', 'coping']
+        },
+        {
+          id: 'self-esteem',
+          name: 'Self-Esteem & Personal Growth',
+          description: 'Build confidence, self-worth, and a stronger sense of self.',
+          color: 'from-yellow-500 to-green-600',
+          keywords: ['self-esteem', 'confidence', 'growth', 'worth', 'low']
+        }
+      ];
+
+      const sections = [
+        {
+          title: "Personal Details",
+          description: "Help us understand your background and preferences",
+          questions: [
+            {
+              id: 'marital-status',
+              question: 'Marital / Relationship Status:',
+              type: 'radio',
+              options: ['Single', 'Married', 'In a relationship', 'Separated / Divorced', 'Widowed']
+            },
+            {
+              id: 'living-situation',
+              question: 'Living Situation:',
+              type: 'radio',
+              options: ['With family', 'With partner', 'Alone']
+            },
+            {
+              id: 'employment',
+              question: 'Employment Status:',
+              type: 'radio',
+              options: ['Employed (full-time/part-time)', 'Self-employed', 'Student', 'Unemployed', 'Retired']
+            },
+            {
+              id: 'religious-background',
+              question: 'Religious / Spiritual Background:',
+              type: 'select',
+              options: ['Christian', 'Muslim', 'Hindu', 'Sikh', 'Jain', 'Buddhist', 'Spiritual but not religious', 'Other', 'Prefer not to say']
+            },
+            {
+              id: 'therapist-religious',
+              question: 'Do you prefer a therapist who understands or shares your religious/spiritual background?',
+              type: 'radio',
+              options: ['Yes', 'No', 'Neutral']
+            },
+            {
+              id: 'therapist-gender',
+              question: 'Preferred therapist gender (optional):',
+              type: 'radio',
+              options: ['Male', 'Female', 'No preference']
+            },
+            {
+              id: 'language',
+              question: 'Preferred language for sessions:',
+              type: 'select',
+              options: ['English', 'Spanish', 'French', 'German', 'Italian', 'Other']
+            }
+          ]
+        },
+        {
+          title: "Mood & Mental Health",
+          description: "Tell us about your current emotional well-being",
+          questions: [
+            {
+              id: 'anxiety-frequency',
+              question: 'How often have you felt nervous, anxious, or on edge recently?',
+              type: 'radio',
+              options: ['Never', 'Sometimes', 'Often', 'Nearly every day']
+            },
+            {
+              id: 'sadness-frequency',
+              question: 'Have you been experiencing sadness or loss of interest in activities?',
+              type: 'radio',
+              options: ['Never', 'Sometimes', 'Often', 'Nearly every day']
+            },
+            {
+              id: 'sleep-issues',
+              question: 'Do you struggle with sleep (falling asleep, staying asleep, or waking up tired)?',
+              type: 'radio',
+              options: ['Yes', 'No', 'Sometimes']
+            },
+            {
+              id: 'trauma-experience',
+              question: 'Have you experienced a traumatic event that still affects you?',
+              type: 'radio',
+              options: ['Yes', 'No']
+            }
+          ]
+        },
+        {
+          title: "Relationships & Social Life",
+          description: "Share about your relationships and social connections",
+          questions: [
+            {
+              id: 'relationship-stress',
+              question: 'Are you currently experiencing stress in your relationship with your partner?',
+              type: 'radio',
+              options: ['Yes', 'No', 'Not applicable']
+            },
+            {
+              id: 'family-conflicts',
+              question: 'Are there conflicts or challenges within your family?',
+              type: 'radio',
+              options: ['Yes', 'No']
+            },
+            {
+              id: 'social-disconnection',
+              question: 'Do you often feel disconnected or unsupported socially?',
+              type: 'radio',
+              options: ['Yes', 'No']
+            }
+          ]
+        },
+        {
+          title: "Behavior & Lifestyle",
+          description: "Help us understand your lifestyle and any challenges",
+          questions: [
+            {
+              id: 'addiction-issues',
+              question: 'Do you struggle with alcohol, substances, or addictive behaviors (gaming, internet, gambling, etc.)?',
+              type: 'radio',
+              options: ['Yes', 'No']
+            },
+            {
+              id: 'work-stress',
+              question: 'Do you face stress related to your job, studies, or career uncertainty?',
+              type: 'radio',
+              options: ['Yes', 'No']
+            },
+            {
+              id: 'job-changes',
+              question: 'Have you recently experienced job loss or major work changes?',
+              type: 'radio',
+              options: ['Yes', 'No']
+            },
+            {
+              id: 'eating-issues',
+              question: 'Do you have difficulties with eating habits, body image, or food-related stress?',
+              type: 'radio',
+              options: ['Yes', 'No']
+            }
+          ]
+        },
+        {
+          title: "Identity & Personal Growth",
+          description: "Tell us about your personal development needs",
+          questions: [
+            {
+              id: 'lgbtq-support',
+              question: 'Do you identify as LGBTQ+ and would like affirmative therapy support?',
+              type: 'radio',
+              options: ['Yes', 'No']
+            },
+            {
+              id: 'self-esteem',
+              question: 'Do you often feel low self-esteem or struggle with confidence?',
+              type: 'radio',
+              options: ['Yes', 'No']
+            }
+          ]
+        },
+        {
+          title: "Overall Check",
+          description: "One final question about your current state",
+          questions: [
+            {
+              id: 'wellbeing-scale',
+              question: 'What is your current overall well-being on a scale of 1–10?',
+              type: 'slider'
+            }
+          ]
+        }
+      ];
+
+      // State management
+      let currentSection = 0;
+      let answers = {};
+      let showResults = false;
+      let recommendations = [];
+
+      // Calculate recommendations
+      function calculateRecommendations() {
+        const scores = {};
+        
+        // Initialize scores
+        therapyAreas.forEach(area => {
+          scores[area.id] = 0;
+        });
+
+        // Score based on answers
+        Object.entries(answers).forEach(([questionId, answer]) => {
+          const answerString = String(answer).toLowerCase();
+          
+          therapyAreas.forEach(area => {
+            area.keywords.forEach(keyword => {
+              if (answerString.includes(keyword.toLowerCase()) || 
+                  (questionId.includes(keyword.toLowerCase()) && (answer === 'Yes' || answer === 'Often' || answer === 'Nearly every day'))) {
+                scores[area.id] += 1;
+              }
+            });
+          });
+        });
+
+        // Special scoring logic
+        if (answers['anxiety-frequency'] === 'Often' || answers['anxiety-frequency'] === 'Nearly every day') {
+          scores.anxiety += 3;
+        }
+        if (answers['sadness-frequency'] === 'Often' || answers['sadness-frequency'] === 'Nearly every day') {
+          scores.anxiety += 2;
+        }
+        if (answers['sleep-issues'] === 'Yes') {
+          scores.sleep += 2;
+          scores.anxiety += 1;
+        }
+        if (answers['trauma-experience'] === 'Yes') {
+          scores.trauma += 3;
+        }
+        if (answers['relationship-stress'] === 'Yes') {
+          scores.couples += 3;
+        }
+        if (answers['family-conflicts'] === 'Yes') {
+          scores.family += 2;
+        }
+        if (answers['addiction-issues'] === 'Yes') {
+          scores.addiction += 3;
+        }
+        if (answers['work-stress'] === 'Yes') {
+          scores['work-career'] += 2;
+        }
+        if (answers['eating-issues'] === 'Yes') {
+          scores.eating += 3;
+        }
+        if (answers['lgbtq-support'] === 'Yes') {
+          scores.lgbtq += 3;
+        }
+        if (answers['self-esteem'] === 'Yes') {
+          scores['self-esteem'] += 2;
+        }
+        if (answers['wellbeing-scale'] && answers['wellbeing-scale'] <= 4) {
+          scores.anxiety += 2;
+          scores['self-esteem'] += 1;
+        }
+
+        // Get top 3 recommendations
+        recommendations = therapyAreas
+          .map(area => ({ ...area, score: scores[area.id] }))
+          .sort((a, b) => b.score - a.score)
+          .slice(0, 3);
+      }
+
+      // UI Rendering functions
+      function renderHeader() {
+        return `
+          <header class="bg-white shadow-sm border-b">
+            <div class="max-w-7xl mx-auto px-4 py-4">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                  <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h1 class="text-xl font-bold text-gray-900">Gentle Rise Therapy</h1>
+                    <p class="text-sm text-gray-600">Mental Health Assessment</p>
+                  </div>
+                </div>
+                <button onclick="window.close()" class="text-gray-400 hover:text-gray-600 transition-colors">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </header>
+        `;
+      }
+
+      function renderProgressBar() {
+        const totalQuestions = sections.reduce((total, section) => total + section.questions.length, 0);
+        const answeredQuestions = Object.keys(answers).length;
+        const progress = (answeredQuestions / totalQuestions) * 100;
+
+        return `
+          <div class="bg-gray-50 rounded-lg p-4 mb-6">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-medium text-gray-900">Assessment Progress</h3>
+              <span class="text-sm bg-gray-200 px-2 py-1 rounded-full">
+                ${answeredQuestions}/${totalQuestions} Questions
+              </span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+              <div class="progress-bar" style="width: ${progress}%"></div>
+            </div>
+            <p class="text-sm text-gray-600 mt-2">
+              Section ${currentSection + 1} of ${sections.length}: ${sections[currentSection]?.title}
+            </p>
+          </div>
+        `;
+      }
+
+      function renderQuestion(question, index) {
+        const questionId = question.id;
+        let inputHtml = '';
+
+        if (question.type === 'radio') {
+          inputHtml = question.options.map(option => `
+            <div class="radio-option ${answers[questionId] === option ? 'selected' : ''}" 
+                 onclick="handleAnswer('${questionId}', '${option}')">
+              <input type="radio" name="${questionId}" value="${option}" 
+                     ${answers[questionId] === option ? 'checked' : ''} 
+                     class="mr-3" readonly>
+              <label class="cursor-pointer">${option}</label>
+            </div>
+          `).join('');
+        } else if (question.type === 'select') {
+          inputHtml = `
+            <select class="select-dropdown" onchange="handleAnswer('${questionId}', this.value)">
+              <option value="">Please select an option...</option>
+              ${question.options.map(option => 
+                `<option value="${option}" ${answers[questionId] === option ? 'selected' : ''}>${option}</option>`
+              ).join('')}
+            </select>
+          `;
+        } else if (question.type === 'slider') {
+          const value = answers[questionId] || 1;
+          inputHtml = `
+            <div class="slider-container">
+              <input type="range" min="1" max="10" value="${value}" 
+                     class="slider" 
+                     oninput="handleAnswer('${questionId}', parseInt(this.value))"
+                     onchange="handleAnswer('${questionId}', parseInt(this.value))">
+              <div class="flex justify-between text-sm text-gray-600 mt-2">
+                <span>1 (Very poor)</span>
+                <span class="font-medium text-purple-600">Current: ${value}</span>
+                <span>10 (Excellent)</span>
+              </div>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="question-card">
+            <label class="text-base font-medium text-gray-900 mb-3 block">
+              ${index + 1}. ${question.question}
+            </label>
+            ${inputHtml}
+          </div>
+        `;
+      }
+
+      function renderCurrentSection() {
+        const section = sections[currentSection];
+        if (!section) return '';
+
+        const questions = section.questions.map((question, index) => renderQuestion(question, index)).join('');
+        
+        const isComplete = section.questions.every(q => answers[q.id] !== undefined);
+
+        return `
+          <div class="section-card">
+            <div class="card-gradient text-white p-6 text-center">
+              <h2 class="text-2xl font-bold mb-2">${section.title}</h2>
+              <p class="text-blue-100">${section.description}</p>
+            </div>
+            
+            <div class="p-6">
+              ${questions}
+            </div>
+            
+            <div class="flex justify-between items-center p-6 bg-gray-50">
+              <button class="btn-secondary ${currentSection === 0 ? 'opacity-50 cursor-not-allowed' : ''}" 
+                      onclick="prevSection()" 
+                      ${currentSection === 0 ? 'disabled' : ''}>
+                ← Previous
+              </button>
+              
+              <div class="text-sm text-gray-600">
+                Section ${currentSection + 1} of ${sections.length}
+              </div>
+              
+              <button class="btn-primary ${!isComplete ? 'opacity-50 cursor-not-allowed' : ''}" 
+                      onclick="nextSection()" 
+                      ${!isComplete ? 'disabled' : ''}>
+                ${currentSection === sections.length - 1 ? 'Get Results' : 'Next'} →
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      function renderResults() {
+        const resultsCards = recommendations.map((area, index) => `
+          <div class="result-card">
+            <div class="flex items-start">
+              <div class="icon card-gradient">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="text-lg font-bold text-gray-900">
+                    #${index + 1} Recommended: ${area.name}
+                  </h3>
+                  <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-sm font-medium">
+                    Match Score: ${area.score}/10
+                  </span>
+                </div>
+                <p class="text-gray-600 mb-4">${area.description}</p>
+                <button class="btn-primary w-full">
+                  Find ${area.name} Therapists →
+                </button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+
+        return `
+          <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-8">
+              <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <h1 class="text-3xl font-bold text-gray-900 mb-4">Your Assessment Results</h1>
+              <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Based on your responses, we recommend these therapy areas that may benefit you most.
+              </p>
+            </div>
+
+            <div class="space-y-4 mb-8">
+              ${resultsCards}
+            </div>
+
+            <div class="text-center">
+              <div class="card-gradient rounded-xl p-6 text-white">
+                <h3 class="text-xl font-bold mb-3">Ready to Get Started?</h3>
+                <p class="text-blue-100 mb-4 max-w-2xl mx-auto">
+                  Connect with qualified therapists who specialize in your recommended areas.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                  <button class="btn-secondary">Book a Session</button>
+                  <button class="btn-secondary">Browse Therapists</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      function render() {
+        const root = document.getElementById('assessment-root');
+        
+        if (showResults) {
+          root.innerHTML = `
+            ${renderHeader()}
+            <div class="max-w-7xl mx-auto px-4 py-8">
+              ${renderResults()}
+            </div>
+          `;
+        } else {
+          root.innerHTML = `
+            ${renderHeader()}
+            <div class="max-w-4xl mx-auto px-4 py-8">
+              <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-gray-900 mb-4">Take a Free Mental Health Assessment</h1>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                  We can't improve what we don't measure. Get in touch with your thoughts and feelings with this comprehensive intake questionnaire.
+                </p>
+              </div>
+              
+              ${renderProgressBar()}
+              ${renderCurrentSection()}
+            </div>
+          `;
+        }
+      }
+
+      // Event handlers
+      window.handleAnswer = function(questionId, value) {
+        answers[questionId] = value;
+        render();
+      };
+
+      window.nextSection = function() {
+        if (currentSection < sections.length - 1) {
+          currentSection++;
+        } else {
+          calculateRecommendations();
+          showResults = true;
+        }
+        render();
+      };
+
+      window.prevSection = function() {
+        if (currentSection > 0) {
+          currentSection--;
+          render();
+        }
+      };
+
+      // Initial render
+      render();
+    </script>
+  </body>
+</html>

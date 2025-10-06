@@ -64,6 +64,6 @@
       open: true,
       allowedHosts: [
       '1fd6d81f-ccbd-4f72-ae92-00e609877b28-00-2c5f3w9f9djrt.pike.replit.dev'
-    ],
-    },
+    ]
+    }
   });

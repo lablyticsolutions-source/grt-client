@@ -242,7 +242,7 @@ export function LoginModal({ isOpen, onClose, onSwitchToSignUp, onLogin }: Login
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="p-8 max-h-[95vh] gap-0 overflow-y-auto rounded-lg bg-white border-0 shadow-2xl custom-scrollbar mb-4">
+      <DialogContent className="custom-center p-8 max-h-[95vh] gap-0 overflow-y-auto rounded-lg bg-white border-0 shadow-2xl custom-scrollbar mb-4">
         <DialogHeader className="sr-only">
           <DialogTitle>Login to Gentle Rise Therapy</DialogTitle>
           <DialogDescription>

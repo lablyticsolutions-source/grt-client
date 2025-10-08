@@ -104,14 +104,12 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
                   }}
                 >
                   Sign Up
-              </Button>
-
-
+                </Button>
               </div>
             )}
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button -- UPDATED ICON COLOUR */}
           <div className="md:hidden">
             <Button
               className="bg-transparent"
@@ -119,10 +117,11 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen
-                ? <X className="h-10 w-10 text-black" />   // or use your logo color
+                ? <X className="h-10 w-10 text-black" />
                 : <Menu className="h-10 w-10 text-black" />}
             </Button>
           </div>
+        </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (

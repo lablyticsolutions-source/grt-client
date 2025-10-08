@@ -117,8 +117,8 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen
-                ? <X className="h-10 w-10 text-black" />
-                : <Menu className="h-10 w-10 text-black" />}
+                ? <X className="h-20 w-20 text-black" />
+                : <Menu className="h-20 w-20 text-white" />}
             </Button>
           </div>
         </div>

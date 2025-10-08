@@ -828,5 +828,7 @@
   }
 }
 
-
-
+.custom-button:hover {
+  background-color: #6b7280 !important; /* Tailwind gray-500 */
+  cursor: pointer !important;
+}

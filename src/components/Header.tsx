@@ -56,10 +56,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
               <a 
                 href="#home" 
                 className="block transition-opacity hover:opacity-80"
-                onClick={() => {
-                  // Scroll to top of page
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
+                onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }}
               >
                 <img 
                   src={logoImage} 
@@ -72,18 +69,9 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-14">
-            <NavigationDropdown
-              title="Home"
-              items={navigationData.home}
-            />
-            <NavigationDropdown
-              title="Resources"
-              items={navigationData.resources}
-            />
-            <NavigationDropdown
-              title="About Us"
-              items={navigationData.aboutUs}
-            />
+            <NavigationDropdown title="Home" items={navigationData.home} />
+            <NavigationDropdown title="Resources" items={navigationData.resources} />
+            <NavigationDropdown title="About Us" items={navigationData.aboutUs} />
           </div>
 
           {/* Desktop Auth Buttons */}
@@ -92,7 +80,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
               <div className="flex items-center space-x-3">
                 <span className="text-gray-700">Welcome, {currentUser.name || currentUser.email}</span>
                 <Button 
-                  className="bg-black text-white border-black hover:bg-gray-800 font-bold"
+                  className="w-full sm:w-auto bg-black text-white hover:bg-gray-800 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold"
                   onClick={onLogout}
                 >
                   Logout
@@ -101,22 +89,21 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
             ) : (
               <div className="flex items-center space-x-3">
                 <Button
-                  className="w-full sm:w-auto bg-black text-white hover:bg-gray-800 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg cursor-pointer font-bold"
+                  className="w-full sm:w-auto bg-black text-white hover:bg-gray-800 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold"
                   onClick={() => {
                     window.location.href = "https://account.lablyticsolutions.com/client-login";
                   }}
                 >
                   Login
                 </Button>
-                
                 <Button
-                  className="custom-button"
+                  className="w-full sm:w-auto bg-black text-white hover:bg-gray-800 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold"
                   onClick={() => {
                     window.location.href = "https://account.lablyticsolutions.com/client-signup";
                   }}
                 >
                   Sign Up
-              </Button>
+                </Button>
               </div>
             )}
           </div>
@@ -124,7 +111,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
           {/* Mobile menu button */}
           <div className="md:hidden">
             <Button
-              variant="ghost"
+              className="bg-transparent"
               size="sm"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
@@ -186,7 +173,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
                       <p className="font-medium text-gray-900">{currentUser.name || currentUser.email}</p>
                     </div>
                     <Button 
-                      className="w-full bg-black text-white hover:bg-gray-800 font-bold"
+                      className="w-full bg-black text-white hover:bg-gray-800 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold"
                       onClick={() => {
                         onLogout?.();
                         setIsMenuOpen(false);
@@ -198,8 +185,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
                 ) : (
                   <div className="flex flex-col space-y-3 px-3">
                     <Button 
-                      variant="outline" 
-                      className="w-full bg-black text-white border-black hover:bg-gray-800 font-bold"
+                      className="w-full bg-black text-white hover:bg-gray-800 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold"
                       onClick={() => {
                         setIsLoginModalOpen(true);
                         setIsMenuOpen(false);
@@ -208,7 +194,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
                       Login
                     </Button>
                     <Button 
-                      className="w-full bg-black text-white hover:bg-gray-800 font-bold"
+                      className="w-full bg-black text-white hover:bg-gray-800 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold"
                       onClick={() => {
                         setIsSignUpModalOpen(true);
                         setIsMenuOpen(false);

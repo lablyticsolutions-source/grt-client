@@ -57,7 +57,7 @@ export function HeroSection({ onNavigateToPayment }: HeroSectionProps = {}) {
           {/* Tagline */}
           <div className="max-w-xl mx-auto">
             <p className="text-lg sm:text-2xl text-white/95 flex items-center justify-center gap-2 mt-2">
-              Healing with <span className="text-red-500">❤️</span> and professional care
+              Healing with love and professional care
             </p>
           </div>
           

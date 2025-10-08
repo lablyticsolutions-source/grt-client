@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { BookingModal } from "./BookingModal";
-import exampleImage from 'assets/f928b12e36c114bfc4fb6415e7b43a0d6020b5a0.png'; // original banner
-import mobileBanner from 'assets/bannercropped.png'; // mobile-optimized banner
+import exampleImage from '../assets/f928b12e36c114bfc4fb6415e7b43a0d6020b5a0.png'; // original banner
+import mobileBanner from '../assets/bannercropped.png'; // mobile-optimized banner
 
 interface HeroSectionProps {
   onNavigateToPayment?: (details: {

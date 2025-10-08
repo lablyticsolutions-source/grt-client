@@ -17,6 +17,7 @@ import { SocialMediaIcons } from "./components/SocialMediaIcons";
 import { PaymentPage } from "./components/PaymentPage";
 import { TherapistDetailPage } from "./components/TherapistDetailPage";
 import { TherapistRegistrationPage } from "./components/TherapistRegistrationPage";
+import './globals.css';
 
 interface SessionDetails {
   therapistName?: string;

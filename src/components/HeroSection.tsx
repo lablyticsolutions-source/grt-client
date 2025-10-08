@@ -1,10 +1,8 @@
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Search } from "lucide-react";
-import { useState } from "react";
 import { BookingModal } from "./BookingModal";
-import exampleImage from '../assets/f928b12e36c114bfc4fb6415e7b43a0d6020b5a0.png';
-import mobileBanner from '../assets/bannercropped.png';
+import exampleImage from 'assets/f928b12e36c114bfc4fb6415e7b43a0d6020b5a0.jpg'; // original banner
+import mobileBanner from 'assets/bannercropped.png'; // mobile-optimized banner
 
 interface HeroSectionProps {
   onNavigateToPayment?: (details: {
@@ -16,16 +14,29 @@ interface HeroSectionProps {
   }) => void;
 }
 
+// Responsive hook to detect mobile screens
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
+  return isMobile;
+}
+
 export function HeroSection({ onNavigateToPayment }: HeroSectionProps = {}) {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const isMobile = useIsMobile();
+  const bannerImage = isMobile ? mobileBanner : exampleImage;
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div 
+      {/* Responsive Banner Image */}
+      <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `url(${exampleImage})`,
+          backgroundImage: `url(${bannerImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'

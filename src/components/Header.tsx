@@ -109,7 +109,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
             )}
           </div>
 
-          {/* Mobile menu button -- UPDATED ICON COLOUR */}
+          {/* Mobile menu button -- ICON IS NOW EXTRA LARGE AND PINK WITH GREEN HOVER */}
           <div className="md:hidden">
             <Button
               className="bg-transparent"
@@ -117,8 +117,8 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen
-                ? <X className="h-20 w-20 text-black" />
-                : <Menu className="h-20 w-20 text-white" />}
+                ? <X className="h-20 w-20 text-[#ec168c] hover:text-green-600 transition-colors" />
+                : <Menu className="h-20 w-20 text-[#ec168c] hover:text-green-600 transition-colors" />}
             </Button>
           </div>
         </div>
@@ -126,7 +126,10 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-3 sm:px-3 border-t border-gray-100">
+            <div 
+              className="px-2 pt-2 pb-3 space-y-3 sm:px-3 border-t border-gray-100 custom-scrollbar overflow-y-auto max-h-[90vh]"
+              style={{ maxHeight: "90vh" }}
+            >
               {/* Mobile Navigation Links */}
               <div className="space-y-1">
                 <div className="px-3 py-2 text-sm font-semibold text-gray-900">Home</div>

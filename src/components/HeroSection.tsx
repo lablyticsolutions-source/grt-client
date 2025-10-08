@@ -61,13 +61,13 @@ export function HeroSection({ onNavigateToPayment }: HeroSectionProps = {}) {
             </h2>
           </div>
           {/* Description (hidden on mobile) */}
-          {!isMobile && (
+          {
             <p className="text-base sm:text-lg text-white/90 leading-relaxed mx-auto max-w-xl px-2">
               At Gentle Rise Therapy, we believe everyone deserves compassionate mental health support.
               Connect safely and privately with professional counselors anytime, via chat, voice, or video.
               You’re not alone—help is just a click away.
             </p>
-          )}
+          }
           {/* Tagline */}
           <div className="max-w-xl mx-auto">
             <p className="text-lg sm:text-2xl text-white/95 flex items-center justify-center gap-2 mt-2">

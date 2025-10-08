@@ -829,8 +829,8 @@
 }
 
 .force-hover:hover {
-  background-color: #16a34a !important; /* green-600 */
-  color: #ec4899 !important;            /* pink-500 */
+  background-color: #b7ff88 !important; /* green-600 */
+  color: #ec168c !important;            /* pink-500 */
   cursor: pointer !important;
   transition: background-color 0.3s ease, color 0.3s ease;
 }

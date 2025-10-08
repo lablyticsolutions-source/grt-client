@@ -100,14 +100,14 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
               </div>
             ) : (
               <div className="flex items-center space-x-3">
-                <Button 
-                  className="bg-black text-white border-black hover:bg-gray-500 hover:bg-opacity-50 cursor-pointer font-bold"
+                <button
+                  className="bg-black text-white border-black hover:bg-gray-500 hover:bg-opacity-50 cursor-pointer font-bold px-4 py-2 rounded"
                   onClick={() => {
                     window.location.href = "https://account.lablyticsolutions.com/client-login";
                   }}
                 >
                   Login
-                </Button>
+              </button>
 
                 <Button 
                   className="bg-black text-white hover:bg-gray-500 hover:bg-opacity-50 cursor-pointer font-bold"

@@ -118,10 +118,11 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
               size="sm"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen
+                ? <X className="h-10 w-10 text-black" />   // or use your logo color
+                : <Menu className="h-10 w-10 text-black" />}
             </Button>
           </div>
-        </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
@@ -190,7 +191,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
                     <Button 
                       className="w-full bg-black text-white hover:bg-gray-800 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold"
                       onClick={() => {
-                        setIsLoginModalOpen(true);
+                        window.location.href = "https://account.lablyticsolutions.com/client-login";
                         setIsMenuOpen(false);
                       }}
                     >
@@ -199,7 +200,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
                     <Button 
                       className="w-full bg-black text-white hover:bg-gray-800 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold"
                       onClick={() => {
-                        setIsSignUpModalOpen(true);
+                        window.location.href = "https://account.lablyticsolutions.com/client-signup";
                         setIsMenuOpen(false);
                       }}
                     >

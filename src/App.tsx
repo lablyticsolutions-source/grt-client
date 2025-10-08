@@ -1,181 +1,106 @@
-import { useState } from "react";
-import { Header } from "./components/Header";
-import { HeroSection } from "./components/HeroSection";
-import { FeaturesSection } from "./components/FeaturesSection";
-import { TherapySessionsCarousel } from "./components/TherapySessionsCarousel";
-import { PromoBanner } from "./components/PromoBanner";
-import { SpecialtyAreas } from "./components/SpecialtyAreas";
-import { HowItWorksSection } from "./components/HowItWorksSection";
-import { TherapistShowcase } from "./components/TherapistShowcase";
-import { StatsCounter } from "./components/StatsCounter";
-import { TestimonialsSection } from "./components/TestimonialsSection";
-import { FAQSection } from "./components/FAQSection";
-import { ContactSection } from "./components/ContactSection";
-import { CrisisResources } from "./components/CrisisResources";
-import { Footer } from "./components/Footer";
-import { SocialMediaIcons } from "./components/SocialMediaIcons";
-import { PaymentPage } from "./components/PaymentPage";
-import { TherapistDetailPage } from "./components/TherapistDetailPage";
-import { TherapistRegistrationPage } from "./components/TherapistRegistrationPage";
+import { useEffect, useState } from "react";
+import { Button } from "./ui/button";
+import { BookingModal } from "./BookingModal";
+// Update paths as needed:
+import exampleImage from 'assets/f928b12e36c114bfc4fb6415e7b43a0d6020b5a0.jpg'; // original landscape
+import mobileBanner from 'assets/bannercropped.png'; // mobile optimized
 
-interface SessionDetails {
-  therapistName?: string;
-  sessionType?: string;
-  date?: string;
-  time?: string;
-  amount?: string;
+interface HeroSectionProps {
+  onNavigateToPayment?: (details: {
+    therapistName?: string;
+    sessionType?: string;
+    date?: string;
+    time?: string;
+    amount?: string;
+  }) => void;
 }
 
-interface Therapist {
-  id: string;
-  name: string;
-  title: string;
-  specialties: string[];
-  rating: number;
-  experience: string;
-  languages: string[];
-  location: string;
-  price: string;
-  image: string;
-  description?: string;
-  approach?: string[];
-  credentials?: string[];
-  availability?: string;
+// Custom hook: detects mobile screen (<640px)
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
+  return isMobile;
 }
 
-interface User {
-  id: string;
-  email: string;
-  name?: string;
-  loginMethod: 'email' | 'social';
-  socialProvider?: 'google' | 'facebook' | 'twitter' | 'apple';
-  profileCompleted?: boolean;
-}
-
-export default function App() {
-  const [showPaymentPage, setShowPaymentPage] = useState(false);
-  const [showTherapistDetail, setShowTherapistDetail] = useState(false);
-  const [showTherapistRegistration, setShowTherapistRegistration] = useState(false);
-  const [selectedTherapist, setSelectedTherapist] = useState<Therapist | undefined>(undefined);
-  const [sessionDetails, setSessionDetails] = useState<SessionDetails | undefined>(undefined);
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const handleNavigateToPayment = (details: SessionDetails) => {
-    setSessionDetails(details);
-    setShowPaymentPage(true);
-    setShowTherapistDetail(false);
-    setShowTherapistRegistration(false);
-    // Scroll to top when payment page opens
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleViewTherapistDetails = (therapist: Therapist) => {
-    setSelectedTherapist(therapist);
-    setShowTherapistDetail(true);
-    setShowTherapistRegistration(false);
-    // Scroll to top when detail page opens
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleShowTherapistRegistration = () => {
-    setShowTherapistRegistration(true);
-    setShowPaymentPage(false);
-    setShowTherapistDetail(false);
-    // Scroll to top when registration page opens
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleBackToBooking = () => {
-    setShowPaymentPage(false);
-    setSessionDetails(undefined);
-  };
-
-  const handleBackToTherapists = () => {
-    setShowTherapistDetail(false);
-    setSelectedTherapist(undefined);
-  };
-
-  const handleBackFromTherapistRegistration = () => {
-    setShowTherapistRegistration(false);
-  };
-
-  const handleCompletePayment = () => {
-    setShowPaymentPage(false);
-    // Payment completed - return to main page
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleLogin = (userData: User) => {
-    setCurrentUser(userData);
-    setIsLoggedIn(true);
-    // User logged in - stay on main page
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleLogout = () => {
-    setCurrentUser(null);
-    setIsLoggedIn(false);
-    setShowPaymentPage(false);
-    setShowTherapistDetail(false);
-    setShowTherapistRegistration(false);
-    setSessionDetails(undefined);
-    setSelectedTherapist(undefined);
-  };
-
-  if (showTherapistRegistration) {
-    return (
-      <TherapistRegistrationPage
-        onBack={handleBackFromTherapistRegistration}
-      />
-    );
-  }
-
-  if (showPaymentPage) {
-    return (
-      <div className="min-h-screen bg-white">
-        <PaymentPage 
-          sessionDetails={sessionDetails} 
-          onBack={handleBackToBooking}
-          onCompletePayment={handleCompletePayment}
-        />
-      </div>
-    );
-  }
-
-  if (showTherapistDetail) {
-    return (
-      <TherapistDetailPage
-        therapist={selectedTherapist}
-        onBack={handleBackToTherapists}
-        onNavigateToPayment={handleNavigateToPayment}
-      />
-    );
-  }
+export function HeroSection({ onNavigateToPayment }: HeroSectionProps = {}) {
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const isMobile = useIsMobile();
+  const bannerImage = isMobile ? mobileBanner : exampleImage;
 
   return (
-    <div className="min-h-screen bg-white">
-      <Header onLogin={handleLogin} currentUser={currentUser} onLogout={handleLogout} />
-      <main>
-        <HeroSection onNavigateToPayment={handleNavigateToPayment} />
-        <FeaturesSection />
-        <TherapySessionsCarousel onNavigateToPayment={handleNavigateToPayment} />
-        <PromoBanner />
-        <SpecialtyAreas />
-        <HowItWorksSection />
-        <TherapistShowcase 
-          onNavigateToPayment={handleNavigateToPayment}
-          onViewTherapistDetails={handleViewTherapistDetails}
-        />
-        <StatsCounter />
-        <TestimonialsSection />
-        <FAQSection />
-        <ContactSection />
-        <CrisisResources />
-      </main>
-      <Footer onShowTherapistRegistration={handleShowTherapistRegistration} />
-      {/* Fixed social media icons that appear on all pages 
-      <SocialMediaIcons position="fixed" orientation="vertical" /> */}
-    </div>
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Responsive Background Image */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${bannerImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
+
+      {/* Overlay for text readability */}
+      <div className="absolute inset-0 z-10 bg-black/50" />
+
+      {/* Content */}
+      <div className="relative z-20 w-full max-w-4xl mx-auto px-2 sm:px-4 lg:px-8 text-center">
+        <div className="space-y-8 sm:space-y-10">
+          {/* Main Heading */}
+          <div className="space-y-8 sm:space-y-10">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl text-white tracking-tight break-words font-bold">
+              Gentle Rise Therapy
+            </h1>
+            <h2 className="text-2xl sm:text-4xl lg:text-6xl text-white break-words text-center font-semibold leading-snug mt-2">
+              Your Path to Healing Starts Here
+            </h2>
+          </div>
+
+          {/* Description */}
+          <p className="text-base sm:text-lg text-white/90 leading-relaxed mx-auto max-w-xl px-2">
+            At Gentle Rise Therapy, we believe everyone deserves compassionate mental health support.
+            Connect safely and privately with professional counselors anytime, via chat, voice, or video.
+            You’re not alone—help is just a click away.
+          </p>
+
+          {/* Tagline */}
+          <div className="max-w-xl mx-auto">
+            <p className="text-lg sm:text-2xl text-white/95 flex items-center justify-center gap-2 mt-2">
+              Healing with love and professional care
+            </p>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full max-w-md mx-auto px-2">
+            <Button
+              size="lg"
+              className="w-full sm:w-auto bg-black text-white hover:bg-gray-800 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold"
+              onClick={() => setIsBookingModalOpen(true)}
+            >
+              Book a Session
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full sm:w-auto bg-white/90 text-gray-900 border-white hover:bg-white rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold"
+              onClick={() => setIsBookingModalOpen(true)}
+            >
+              Start a Chat
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Booking Modal */}
+      <BookingModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+        onNavigateToPayment={onNavigateToPayment}
+      />
+    </section>
   );
 }

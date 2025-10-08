@@ -101,7 +101,8 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
             ) : (
               <div className="flex items-center space-x-3">
                 <Button 
-                  variant="black" 
+                  variant="black"
+                  className="!bg-black !text-white !border-black cursor-pointer"
                   onClick={() => {
                     window.location.href = "https://account.lablyticsolutions.com/client-login";
                   }}
@@ -111,6 +112,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
               
               <Button 
                   variant="black"
+                  className="!bg-black !text-white !border-black cursor-pointer"
                   onClick={() => {
                     window.location.href = "https://account.lablyticsolutions.com/client-signup";
                   }}

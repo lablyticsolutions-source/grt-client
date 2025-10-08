@@ -3,7 +3,8 @@ import { Input } from "./ui/input";
 import { Search } from "lucide-react";
 import { useState } from "react";
 import { BookingModal } from "./BookingModal";
-import exampleImage from 'figma:asset/f928b12e36c114bfc4fb6415e7b43a0d6020b5a0.png';
+import exampleImage from '../assets/f928b12e36c114bfc4fb6415e7b43a0d6020b5a0.png';
+import mobileBanner from '../assets/bannercropped.png';
 
 interface HeroSectionProps {
   onNavigateToPayment?: (details: {

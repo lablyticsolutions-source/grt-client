@@ -174,8 +174,8 @@ export default function App() {
         <CrisisResources />
       </main>
       <Footer onShowTherapistRegistration={handleShowTherapistRegistration} />
-      {/* Fixed social media icons that appear on all pages */}
-      <SocialMediaIcons position="fixed" orientation="vertical" />
+      {/* Fixed social media icons that appear on all pages 
+      <SocialMediaIcons position="fixed" orientation="vertical" /> */}
     </div>
   );
 }

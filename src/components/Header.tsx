@@ -101,17 +101,19 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
             ) : (
               <div className="flex items-center space-x-3">
                 <Button 
-                  className="bg-black text-white border-black hover:bg-gray-800 font-bold"
+                  className="bg-black text-white border-black hover:bg-gray-700 cursor-pointer font-bold"
                   onClick={() => {
-                    window.location.href = "https://gentle-rise-therapy-dashboards.lovable.app/client-login";
+                    window.location.href = "https://account.lablyticsolutions.com/client-login";
                   }}
                 >
                   Login
                 </Button>
 
                 <Button 
-                  className="bg-black text-white hover:bg-gray-800 font-bold"
-                  onClick={() => setIsSignUpModalOpen(true)}
+                  className="bg-black text-white hover:bg-gray-700 cursor-pointer font-bold"
+                  onClick={() => {
+                    window.location.href = "https://account.lablyticsolutions.com/client-signup";
+                  }}
                 >
                   Sign Up
                 </Button>

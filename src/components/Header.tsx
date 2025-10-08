@@ -100,19 +100,17 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
               </div>
             ) : (
               <div className="flex items-center space-x-3">
-                <Button 
-                  variant="black"
-                  className="!bg-black !text-white !border-black cursor-pointer"
+                <Button
+                  className="custom-button"
                   onClick={() => {
                     window.location.href = "https://account.lablyticsolutions.com/client-login";
                   }}
                 >
                   Login
-              </Button>
-              
-              <Button 
-                  variant="black"
-                  className="!bg-black !text-white !border-black cursor-pointer"
+                </Button>
+                
+                <Button
+                  className="custom-button"
                   onClick={() => {
                     window.location.href = "https://account.lablyticsolutions.com/client-signup";
                   }}

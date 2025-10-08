@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { BookingModal } from "./BookingModal";
 import exampleImage from '../assets/f928b12e36c114bfc4fb6415e7b43a0d6020b5a0.png';
-import mobileBanner from '../assets/cropped.png';
+import mobileBanner from '../assets/croppedimageformobile.png';
 
 interface HeroSectionProps {
   onNavigateToPayment?: (details: {

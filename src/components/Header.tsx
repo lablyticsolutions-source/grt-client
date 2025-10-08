@@ -89,7 +89,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
             ) : (
               <div className="flex items-center space-x-3">
                 <Button
-                  className="w-full sm:w-auto bg-black text-white hover:bg-gray-500 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold"
+                  className="w-full sm:w-auto bg-black text-white hover:bg-gray-1000 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold"
                   onClick={() => {
                     window.location.href = "https://account.lablyticsolutions.com/client-login";
                   }}
@@ -97,7 +97,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
                   Login
                 </Button>
                 <Button
-                  className="w-full sm:w-auto bg-black text-white hover:bg-gray-500 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold"
+                  className="w-full sm:w-auto bg-black text-white hover:bg-gray-1000 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold"
                   onClick={() => {
                     window.location.href = "https://account.lablyticsolutions.com/client-signup";
                   }}

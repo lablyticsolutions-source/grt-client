@@ -828,15 +828,9 @@
   }
 }
 
-.custom-button {
-  background-color: var(--primary);
-  color: var(--primary-foreground);
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.custom-button:hover {
-  background-color: #6b7280 !important; /* Tailwind gray-500 */
-  color: var(--primary-foreground); /* keep text color same */
+.force-hover:hover {
+  background-color: #16a34a !important; /* green-600 */
+  color: #ec4899 !important;            /* pink-500 */
   cursor: pointer !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

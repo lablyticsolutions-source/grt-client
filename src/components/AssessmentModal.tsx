@@ -518,9 +518,15 @@ export function AssessmentModal({ isOpen, onClose }: AssessmentModalProps) {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
                       <Button variant="secondary" className="font-medium">
+                        onClick={() => {
+                          window.location.href = "https://account.lablyticsolutions.com/client-login";
+                        }}
                         Book a Session
                       </Button>
                       <Button variant="outline" className="font-medium text-black border-white hover:bg-white hover:text-blue-600">
+                        onClick={() => {
+                          window.location.href = "https://account.lablyticsolutions.com/client-login";
+                        }}
                         Browse Therapists
                       </Button>
                     </div>

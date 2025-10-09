@@ -77,7 +77,7 @@ export function HeroSection({ onNavigateToPayment }: HeroSectionProps = {}) {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full max-w-md mx-auto px-2">
             <Button 
               size="lg" 
-              className="w-full sm:w-auto bg-black text-white hover:bg-gray-800 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold"
+              className="w-full sm:w-auto bg-black text-white hover:bg-gray-800 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg cursor-pointer font-bold"
               onClick={() => {
                     window.location.href = "https://account.lablyticsolutions.com/client-login";
                   }}
@@ -87,7 +87,7 @@ export function HeroSection({ onNavigateToPayment }: HeroSectionProps = {}) {
             <Button 
               variant="outline" 
               size="lg" 
-              className="w-full sm:w-auto bg-white/90 text-gray-900 border-white hover:bg-white rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold"
+              className="w-full sm:w-auto bg-white/90 text-gray-900 border-white hover:bg-white rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg cursor-pointer font-bold"
               onClick={() => {
                     window.location.href = "https://account.lablyticsolutions.com/client-login";
                   }}

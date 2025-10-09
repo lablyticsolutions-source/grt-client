@@ -120,6 +120,15 @@ export function StatsCounter() {
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
               Join thousands of others who have found healing, growth, and renewed hope through our compassionate therapy services.
             </p>
+            <Button 
+              className="w-full justify-between"
+              onClick={() => {
+                window.location.href = "https://account.lablyticsolutions.com/client-login";
+              }}
+            >
+              Book a Session
+              <ArrowRight className="h-4 w-4" />
+            </Button>
           </div>
         </div>
       </div>

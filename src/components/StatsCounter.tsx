@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Card, CardContent } from "./ui/card";
-import { Users, Star, Calendar, Heart, Award, Clock } from "lucide-react";
+import { Users, Star, Calendar, Heart, Award, Clock, ArrowRight} from "lucide-react";
 
 export function StatsCounter() {
   const [counts, setCounts] = useState({

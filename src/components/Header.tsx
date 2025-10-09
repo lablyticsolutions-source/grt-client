@@ -130,11 +130,12 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
                 : (
                   <Menu
                     style={{
+                      strokeWidth={4}
                       fontSize: "4rem",
                       color: "black",
                       transition: "color 0.2s"
                     }}
-                    onMouseEnter={e => (e.currentTarget.style.color = "#16a34a")}
+                    onMouseEnter={e => (e.currentTarget.style.color = "#ec168c")}
                     onMouseLeave={e => (e.currentTarget.style.color = "black")}
                   />
                 )

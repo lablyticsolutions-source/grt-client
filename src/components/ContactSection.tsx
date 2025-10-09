@@ -219,7 +219,7 @@ export function ContactSection() {
   }, []);
 
   return (
-    <section id="contact" className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* CTA Section */}
         <div className="text-center mb-16">
@@ -255,7 +255,7 @@ export function ContactSection() {
         </div>
 
         {/* Contact Form Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div id="contact" className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <h3 className="text-2xl text-gray-900 mb-6">Get Started Today</h3>
             <p className="text-gray-600 mb-8">

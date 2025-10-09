@@ -109,19 +109,39 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
             )}
           </div>
 
-          {/* Mobile menu button -- ICON IS NOW EXTRA LARGE AND PINK WITH GREEN HOVER */}
+          {/* Mobile menu button -- INLINE CSS, BLACK, GREEN HOVER, SUPER LARGE */}
           <div className="md:hidden">
-          <Button
-            className="bg-transparent"
-            size="sm"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen
-              ? <X className="h-16 w-16 text-black hover:text-green-600 transition-colors" />
-              : <Menu className="h-16 w-16 text-black hover:text-green-600 transition-colors" />}
-          </Button>
+            <Button
+              className="bg-transparent"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen
+                ? (
+                  <X
+                    style={{
+                      fontSize: "4rem",
+                      color: "black",
+                      transition: "color 0.2s"
+                    }}
+                    onMouseEnter={e => (e.currentTarget.style.color = "#16a34a")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "black")}
+                  />
+                )
+                : (
+                  <Menu
+                    style={{
+                      fontSize: "4rem",
+                      color: "black",
+                      transition: "color 0.2s"
+                    }}
+                    onMouseEnter={e => (e.currentTarget.style.color = "#16a34a")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "black")}
+                  />
+                )
+              }
+            </Button>
+          </div>
         </div>
-
 
         {/* Mobile Navigation */}
         {isMenuOpen && (

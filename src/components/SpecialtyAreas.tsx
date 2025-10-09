@@ -167,6 +167,9 @@ export function SpecialtyAreas() {
                     <Button 
                       variant="ghost" 
                       className="w-full justify-between group-hover:bg-primary group-hover:text-white transition-all duration-300 mt-4 font-bold"
+                      onClick={() => {
+                      window.location.href = "https://account.lablyticsolutions.com/client-login";
+                      }}
                     >
                       Find Therapists
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />

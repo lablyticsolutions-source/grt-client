@@ -114,6 +114,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
             <Button
               className="bg-black p-4"
               style={{
+                cursor: 'pointer',
                 minWidth: '4rem',
                 minHeight: '4rem',
                 borderRadius: '0.5rem', // small rounding, set to 0 for perfect square
@@ -126,7 +127,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
               {isMenuOpen ? (
                 <X
                   style={{
-                    fontSize: "2.5rem",
+                    fontSize: "3rem",
                     color: "white",
                     transition: "color 0.2s"
                   }}
@@ -137,7 +138,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
               ) : (
                 <Menu
                   style={{
-                    fontSize: "2.5rem",
+                    fontSize: "4rem",
                     color: "white",
                     transition: "color 0.2s"
                   }}

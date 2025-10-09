@@ -112,10 +112,11 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
           {/* Mobile menu button -- INLINE CSS, BLACK, GREEN HOVER, SUPER LARGE */}
           <div className="md:hidden">
             <Button
-              className="bg-black rounded-full p-4"
+              className="bg-black p-4"
               style={{
                 minWidth: '4rem',
                 minHeight: '4rem',
+                borderRadius: '0.5rem', // small rounding, set to 0 for perfect square
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
@@ -126,7 +127,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
                 <X
                   style={{
                     fontSize: "2.5rem",
-                    color: "white", // use white for contrast with black background
+                    color: "white",
                     transition: "color 0.2s"
                   }}
                   strokeWidth={4}
@@ -137,7 +138,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
                 <Menu
                   style={{
                     fontSize: "2.5rem",
-                    color: "white", // use white for contrast with black background
+                    color: "white",
                     transition: "color 0.2s"
                   }}
                   strokeWidth={4}

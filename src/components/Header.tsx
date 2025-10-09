@@ -112,27 +112,40 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
           {/* Mobile menu button -- INLINE CSS, BLACK, GREEN HOVER, SUPER LARGE */}
           <div className="md:hidden">
             <Button
-              className="bg-transparent p-4 min-w-[5rem] min-h-[5rem]"
+              className="bg-black rounded-full p-4"
+              style={{
+                minWidth: '4rem',
+                minHeight: '4rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? (
                 <X
-                  style={{ fontSize: "4rem", color: "black", transition: "color 0.2s" }}
+                  style={{
+                    fontSize: "2.5rem",
+                    color: "white", // use white for contrast with black background
+                    transition: "color 0.2s"
+                  }}
                   strokeWidth={4}
                   onMouseEnter={e => (e.currentTarget.style.color = "#ec168c")}
-                  onMouseLeave={e => (e.currentTarget.style.color = "black")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "white")}
                 />
               ) : (
                 <Menu
-                  style={{ fontSize: "4rem", color: "black", transition: "color 0.2s" }}
+                  style={{
+                    fontSize: "2.5rem",
+                    color: "white", // use white for contrast with black background
+                    transition: "color 0.2s"
+                  }}
                   strokeWidth={4}
                   onMouseEnter={e => (e.currentTarget.style.color = "#ec168c")}
-                  onMouseLeave={e => (e.currentTarget.style.color = "black")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "white")}
                 />
               )}
             </Button>
-
-
           </div>
         </div>
 

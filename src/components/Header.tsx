@@ -112,7 +112,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
           {/* Mobile menu button -- INLINE CSS, BLACK, GREEN HOVER, SUPER LARGE */}
           <div className="md:hidden">
             <Button
-              className="bg-transparent"
+              className="bg-transparent p-4 min-w-[5rem] min-h-[5rem]"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen
@@ -123,7 +123,8 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
                       color: "black",
                       transition: "color 0.2s"
                     }}
-                    onMouseEnter={e => (e.currentTarget.style.color = "#16a34a")}
+                    strokeWidth={4}
+                    onMouseEnter={e => (e.currentTarget.style.color = "#ec168c")} // pink on hover
                     onMouseLeave={e => (e.currentTarget.style.color = "black")}
                   />
                 )
@@ -141,6 +142,7 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
                 )
               }
             </Button>
+
           </div>
         </div>
 

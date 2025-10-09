@@ -20,7 +20,7 @@ export function Footer({ onShowTherapistRegistration }: FooterProps) {
       { name: "Insurance & Pricing", href: "#" }
     ],
     providers: [
-      { name: "Join as Therapist", href: "#" },
+      { name: "Join as a Therapist", href: "https://therapists.lablyticsolutions.com/join-therapist" },
       { name: "Provider Resources", href: "#" },
       { name: "Training & Support", href: "#" },
       { name: "Platform Guide", href: "#" }
@@ -62,7 +62,7 @@ export function Footer({ onShowTherapistRegistration }: FooterProps) {
 
           {/* Services Links */}
           <div>
-            <h4 className="text-lg text-white  mb-4">Therapy Services</h4>
+            <h4 className="text-lg text-white mb-4">Therapy Services</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link, index) => (
                 <li key={index}>
@@ -94,13 +94,15 @@ export function Footer({ onShowTherapistRegistration }: FooterProps) {
             <ul className="space-y-3">
               {footerLinks.providers.map((link, index) => (
                 <li key={index}>
-                  {link.name === "Join as Therapist" ? (
-                    <button 
-                      onClick={onShowTherapistRegistration}
+                  {link.name === "Join as a Therapist" ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-gray-300 hover:text-white transition-colors cursor-pointer text-left"
                     >
                       {link.name}
-                    </button>
+                    </a>
                   ) : (
                     <a href={link.href} className="text-gray-300 hover:text-white transition-colors">
                       {link.name}

@@ -78,7 +78,9 @@ export function HeroSection({ onNavigateToPayment }: HeroSectionProps = {}) {
             <Button 
               size="lg" 
               className="w-full sm:w-auto bg-black text-white hover:bg-gray-800 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold"
-              onClick={() => setIsBookingModalOpen(true)}
+              onClick={() => {
+                    window.location.href = "https://account.lablyticsolutions.com/client-login";
+                  }}
             >
               Book a Session
             </Button>
@@ -86,7 +88,9 @@ export function HeroSection({ onNavigateToPayment }: HeroSectionProps = {}) {
               variant="outline" 
               size="lg" 
               className="w-full sm:w-auto bg-white/90 text-gray-900 border-white hover:bg-white rounded-full px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold"
-              onClick={() => setIsBookingModalOpen(true)}
+              onClick={() => {
+                    window.location.href = "https://account.lablyticsolutions.com/client-login";
+                  }}
             >
               Start a Chat
             </Button>

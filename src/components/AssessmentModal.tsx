@@ -501,7 +501,12 @@ export function AssessmentModal({ isOpen, onClose }: AssessmentModalProps) {
                         <CardDescription className="mb-3">
                           {area.description}
                         </CardDescription>
-                        <Button className="w-full justify-between">
+                        <Button 
+                          className="w-full justify-between"
+                          onClick={() => {
+                            window.location.href = "https://account.lablyticsolutions.com/client-login";
+                          }}
+                        >
                           Find {area.name} Therapists
                           <ArrowRight className="h-4 w-4" />
                         </Button>

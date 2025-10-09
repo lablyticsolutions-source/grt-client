@@ -111,17 +111,17 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
 
           {/* Mobile menu button -- ICON IS NOW EXTRA LARGE AND PINK WITH GREEN HOVER */}
           <div className="md:hidden">
-            <Button
-              className="bg-transparent"
-              size="sm"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen
-                ? <X className="h-20 w-20 text-[#ec168c] hover:text-green-600 transition-colors" />
-                : <Menu className="h-20 w-20 text-[#ec168c] hover:text-green-600 transition-colors" />}
-            </Button>
-          </div>
+          <Button
+            className="bg-transparent"
+            size="sm"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen
+              ? <X className="h-16 w-16 text-black hover:text-green-600 transition-colors" />
+              : <Menu className="h-16 w-16 text-black hover:text-green-600 transition-colors" />}
+          </Button>
         </div>
+
 
         {/* Mobile Navigation */}
         {isMenuOpen && (

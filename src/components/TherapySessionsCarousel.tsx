@@ -122,7 +122,9 @@ export function TherapySessionsCarousel({ onNavigateToPayment }: TherapySessions
                           <Button 
                             size="lg" 
                             className={`bg-gradient-to-r ${session.color} hover:opacity-90 text-white border-0 w-fit font-bold px-8 py-4 text-lg`}
-                            onClick={() => handleBookSession(session.type)}
+                            onClick={() => {
+                              window.location.href = "https://account.lablyticsolutions.com/client-login";
+                            }}
                           >
                             {session.buttonText}
                           </Button>

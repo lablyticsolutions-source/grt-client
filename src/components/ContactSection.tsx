@@ -235,11 +235,17 @@ export function ContactSection() {
                 <Button 
                   size="lg" 
                   variant="secondary"
-                  onClick={() => setIsBookingModalOpen(true)}
+                  onClick={() => {
+                    window.location.href = "https://account.lablyticsolutions.com/client-login";
+                  }}
                 >
                   Book a Session
                 </Button>
-                <Button size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+                <Button size="lg" className="border-white text-white hover:bg-white hover:text-primary"
+                  onClick={() => {
+                      window.location.href = "https://account.lablyticsolutions.com/client-login";
+                    }}
+                  >
                   Chat with Us
                 </Button>
               </div>

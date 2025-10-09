@@ -115,33 +115,23 @@ export function Header({ onLogin, currentUser, onLogout }: HeaderProps) {
               className="bg-transparent p-4 min-w-[5rem] min-h-[5rem]"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen
-                ? (
-                  <X
-                    style={{
-                      fontSize: "4rem",
-                      color: "black",
-                      transition: "color 0.2s"
-                    }}
-                    strokeWidth={4}
-                    onMouseEnter={e => (e.currentTarget.style.color = "#ec168c")} // pink on hover
-                    onMouseLeave={e => (e.currentTarget.style.color = "black")}
-                  />
-                )
-                : (
-                  <Menu
-                    style={{
-                      fontSize: "4rem",
-                      color: "black",
-                      transition: "color 0.2s"
-                    }}
-                    strokeWidth={4}
-                    onMouseEnter={e => (e.currentTarget.style.color = "#ec168c")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "black")}
-                  />
-                )
-              }
+              {isMenuOpen ? (
+                <X
+                  style={{ fontSize: "4rem", color: "black", transition: "color 0.2s" }}
+                  strokeWidth={4}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#ec168c")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "black")}
+                />
+              ) : (
+                <Menu
+                  style={{ fontSize: "4rem", color: "black", transition: "color 0.2s" }}
+                  strokeWidth={4}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#ec168c")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "black")}
+                />
+              )}
             </Button>
+
 
           </div>
         </div>
